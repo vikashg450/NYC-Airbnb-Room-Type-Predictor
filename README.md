@@ -169,7 +169,7 @@ Predict the room type for a given listing.
 ## ☁️ Deployment (Render)
 
 The backend is deployed at:  
-🔗 **https://nyc-airbnb-room-type-predictor.onrender.com**
+🔗 **https://nyc-airbnb-room-type-predictor-tm1a.onrender.com**
 
 ### Deploy your own instance
 
@@ -242,13 +242,3 @@ Contributions are welcome! Feel free to:
 
 ---
 
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
-
-Built with ❤️ using NYC Airbnb open data.  
-Trained for educational and demonstration purposes — predictions are probabilistic estimates.
