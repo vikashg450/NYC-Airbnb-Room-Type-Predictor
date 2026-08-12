@@ -86,7 +86,7 @@ NYC-Airbnb-Room-Type-Predictor/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/NYC-Airbnb-Room-Type-Predictor.git
+git clone https://github.com/vikashg450/NYC-Airbnb-Room-Type-Predictor.git
 cd NYC-Airbnb-Room-Type-Predictor
 ```
 
