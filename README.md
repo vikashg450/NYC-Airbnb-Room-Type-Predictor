@@ -2,43 +2,52 @@
 
 > An AI-powered web application that predicts whether a New York City Airbnb listing is an **Entire home/apt**, **Private room**, or **Shared room** — visualised as the city skyline lighting up.
 
+[![Live Web App](https://img.shields.io/badge/🌐_Live_Web_App-Click_Here-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://nyc-airbnb-room-type-predictor-1-9ols.onrender.com)
+[![Live API](https://img.shields.io/badge/⚡_Live_FastAPI-API_Docs-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://nyc-airbnb-room-type-predictor-tm1a.onrender.com/docs)
+
 ![Python](https://img.shields.io/badge/Python-3.12.9-3776AB?style=flat&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-009688?style=flat&logo=fastapi&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.6.1-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=flat&logo=render&logoColor=white)
+![Render Deploy](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=flat&logo=render&logoColor=white)
 
 ---
 
-## 📸 Preview
+## 🔗 Live Application Links
 
-| Hero & Form | After Prediction |
-|---|---|
-| Dark NYC skyline background, glassmorphism panels, animated teal badge | Buildings light up proportionally to confidence scores |
-
----
-
-## ✨ Features
-
-- 🔮 **Instant ML predictions** — enter listing details and get a room type prediction in real time
-- 📊 **Probability breakdown** — animated bar charts showing confidence for all 3 classes
-- 🏙️ **NYC skyline visualisation** — buildings light up based on prediction probability
-- 🌆 **4 example listings** — pre-filled examples across Manhattan, Brooklyn, Queens & Bronx
-- 📡 **Live API health indicator** — shows whether the backend is online or unreachable
-- 📱 **Fully responsive** — works on mobile, tablet, and desktop
-- ♿ **Accessible** — `aria-live`, `aria-label`, reduced-motion support, keyboard navigable
+- 🌐 **Frontend Web App:** [https://nyc-airbnb-room-type-predictor-1-9ols.onrender.com](https://nyc-airbnb-room-type-predictor-1-9ols.onrender.com)
+- ⚡ **Backend API (Swagger Docs):** [https://nyc-airbnb-room-type-predictor-tm1a.onrender.com/docs](https://nyc-airbnb-room-type-predictor-tm1a.onrender.com/docs)
 
 ---
 
-## 🧠 Machine Learning
+## 📸 Screenshots & UI Preview
 
-| Detail | Info |
+| 📋 Listing Details Form | 🔮 Prediction & Probability Breakdown |
+|:---:|:---:|
+| ![Listing Details Form](assets/app_interface.png) | ![Prediction Result](assets/prediction_result.png) |
+
+---
+
+## ✨ Key Features
+
+- 🔮 **Instant ML Predictions** — Enter listing parameters (borough, neighbourhood, price, minimum nights, reviews) and get real-time room type predictions.
+- 📊 **Probability Breakdown** — Animated bar chart displaying percentage confidence for all 3 target classes.
+- 🏙️ **NYC Skyline Visualisation** — Interactive skyline building graphic that lights up windows in real time based on model probabilities.
+- 🌆 **4 Pre-filled Examples** — Quickly test realistic listings across Manhattan, Brooklyn, Queens, and Bronx.
+- 📡 **Live API Health Status** — Real-time indicator showing backend connectivity.
+- 📱 **Responsive & Glassmorphism Design** — Dark mode UI crafted with Space Grotesk, Inter, and JetBrains Mono fonts.
+
+---
+
+## 🧠 Machine Learning Model
+
+| Detail | Information |
 |---|---|
 | **Dataset** | [NYC Airbnb Open Data](https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data) |
-| **Task** | Multi-class classification |
-| **Target classes** | `Entire home/apt`, `Private room`, `Shared room` |
-| **Pipeline** | scikit-learn `Pipeline` (preprocessing + classifier) |
-| **Model file** | `Model_Pipeline.pkl` (≈37 MB) |
-| **Notebook** | `nyc_airbnb_room_type_classification.ipynb` |
+| **Task** | Multi-Class Classification |
+| **Target Classes** | `Entire home/apt`, `Private room`, `Shared room` |
+| **Pipeline** | scikit-learn `Pipeline` (Preprocessing + Encoder + Classifier) |
+| **Model Artifact** | `Model_Pipeline.pkl` (~37 MB) |
+| **Training Notebook** | `nyc_airbnb_room_type_classification.ipynb` |
 
 ### Input Features
 
@@ -50,9 +59,9 @@
 | `minimum_nights` | int | Minimum nights required for booking |
 | `number_of_reviews` | int | Total number of guest reviews |
 | `reviews_per_month` | float | Average monthly review rate |
-| `calculated_host_listings_count` | int | Total listings by this host |
+| `calculated_host_listings_count` | int | Total listings owned by this host |
 | `availability_365` | int | Days available per year (0–365) |
-| `neighbourhood_group` | str | NYC borough (Manhattan, Brooklyn, etc.) |
+| `neighbourhood_group` | str | NYC Borough (Manhattan, Brooklyn, Queens, Bronx, Staten Island) |
 | `neighbourhood` | str | Specific neighbourhood name |
 
 ---
@@ -62,69 +71,63 @@
 ```
 NYC-Airbnb-Room-Type-Predictor/
 │
-├── main.py                                       # FastAPI backend — prediction & health endpoints
-├── Model_Pipeline.pkl                            # Pre-trained scikit-learn pipeline (~37 MB)
-├── requirements.txt                              # Python dependencies (pinned versions)
-├── runtime.txt                                   # Python version for Render deployment
+├── assets/
+│   ├── app_interface.png                         # Screenshot: Form & hero section
+│   └── prediction_result.png                     # Screenshot: Prediction result & skyline
 │
-├── index.html                                    # Frontend — single-page app
-├── style.css                                     # Styling — dark glassmorphism theme
-├── script.js                                     # Frontend logic — API calls, animations
+├── main.py                                       # FastAPI backend service
+├── Model_Pipeline.pkl                            # Trained scikit-learn model pipeline (~37 MB)
+├── requirements.txt                              # Python dependencies
+├── runtime.txt                                   # Python version specifier (python-3.12.9)
+├── .python-version                               # Python version environment config
 │
-└── nyc_airbnb_room_type_classification.ipynb     # Training notebook (EDA + model)
+├── index.html                                    # Frontend UI structure
+├── style.css                                     # Custom CSS design system (glassmorphism)
+├── script.js                                     # Frontend interactions & API integration
+│
+└── nyc_airbnb_room_type_classification.ipynb     # Jupyter notebook (EDA, training, evaluation)
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Local Setup)
 
 ### Prerequisites
-
 - Python **3.12+**
 - `pip`
 
-### 1. Clone the repository
-
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/vikashg450/NYC-Airbnb-Room-Type-Predictor.git
 cd NYC-Airbnb-Room-Type-Predictor
 ```
 
-### 2. Install dependencies
-
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Start the FastAPI server
-
+### 3. Run FastAPI Backend
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
+- API Docs: **http://localhost:8000/docs**
 
-The API will be available at **http://localhost:8000**  
-Interactive docs (Swagger UI) at **http://localhost:8000/docs**
-
-### 4. Open the frontend
-
-In a separate terminal, serve the frontend:
-
+### 4. Serve Frontend
+In a new terminal window:
 ```bash
 python -m http.server 7891
 ```
+Open **http://localhost:7891** in your browser.
 
-Then open **http://localhost:7891** in your browser.
-
-> **Note:** If running locally, update `API_BASE_URL` in `script.js` line 5 to `http://localhost:8000`.
+> 💡 *Note: To connect the local frontend to your local API, set `const API_BASE_URL = "http://localhost:8000";` in `script.js`.*
 
 ---
 
-## 🌐 API Reference
+## 🌐 API Endpoints
 
 ### `GET /`
-Health check — returns API status.
-
-**Response:**
+Health check endpoint.
 ```json
 {
   "status": "ok",
@@ -132,12 +135,10 @@ Health check — returns API status.
 }
 ```
 
----
-
 ### `POST /predict`
-Predict the room type for a given listing.
+Submits listing details to obtain room type predictions.
 
-**Request body:**
+**Sample Request Payload:**
 ```json
 {
   "latitude": 40.7484,
@@ -153,7 +154,7 @@ Predict the room type for a given listing.
 }
 ```
 
-**Response:**
+**Sample Response:**
 ```json
 {
   "Predicted_room_type": "Entire home/apt",
@@ -161,84 +162,17 @@ Predict the room type for a given listing.
 }
 ```
 
-> Probability values are aligned to sklearn's alphabetical `classes_` order:  
-> `[Entire home/apt, Private room, Shared room]`
-
----
-
-## ☁️ Deployment (Render)
-
-The backend is deployed at:  
-🔗 **https://nyc-airbnb-room-type-predictor-tm1a.onrender.com**
-
-### Deploy your own instance
-
-1. Push this repo to GitHub
-2. Create a new **Web Service** on [Render](https://render.com)
-3. Connect your GitHub repository
-4. Set the following:
-
-| Setting | Value |
-|---|---|
-| **Environment** | Python |
-| **Build Command** | `pip install -r requirements.txt` |
-| **Start Command** | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
-| **Python Version** | `3.12.7` (from `runtime.txt`) |
-
-> ⚠️ **Cold starts:** Render's free tier spins down after inactivity. The first request after idle may take ~30 seconds. The API status badge in the UI will show "unreachable" until the server warms up — this is expected.
-
 ---
 
 ## 🛠️ Tech Stack
 
-### Backend
-- **[FastAPI](https://fastapi.tiangolo.com/)** — high-performance Python web framework
-- **[Uvicorn](https://www.uvicorn.org/)** — ASGI server
-- **[scikit-learn](https://scikit-learn.org/)** — ML pipeline & prediction
-- **[pandas](https://pandas.pydata.org/)** — data framing for model input
-- **[Pydantic](https://docs.pydantic.dev/)** — request validation (v2 compatible)
-
-### Frontend
-- **Vanilla HTML / CSS / JavaScript** — zero dependencies, zero build step
-- **[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)** + **Inter** + **JetBrains Mono** — Google Fonts
-- CSS glassmorphism, aurora gradients, SVG NYC skyline, smooth micro-animations
+- **Backend:** [FastAPI](https://fastapi.tiangolo.com/), [Uvicorn](https://www.uvicorn.org/), [scikit-learn](https://scikit-learn.org/), [pandas](https://pandas.pydata.org/), [Pydantic](https://docs.pydantic.dev/)
+- **Frontend:** Vanilla HTML5, CSS3 (Glassmorphism & CSS Animations), JavaScript (Async/Fetch API)
+- **Deployment:** [Render](https://render.com) (Web Service & Static Site)
 
 ---
 
-## 📦 Dependencies
+## 👤 Author
 
-```
-fastapi==0.115.6
-uvicorn[standard]==0.34.0
-pydantic==2.10.4
-pandas==2.2.3
-scikit-learn==1.6.1
-joblib==1.4.2
-```
-
----
-
-## 📓 Training Notebook
-
-The Jupyter notebook `nyc_airbnb_room_type_classification.ipynb` covers:
-
-- 📊 Exploratory Data Analysis (EDA)
-- 🧹 Data cleaning & feature engineering
-- 🏗️ Pipeline construction (encoding + scaling + classifier)
-- 📈 Model evaluation & metrics
-- 💾 Saving the trained pipeline with `joblib`
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m "Add my feature"`
-4. Push to the branch: `git push origin feature/my-feature`
-5. Open a Pull Request
-
----
-
+Developed by **[Vikash](https://github.com/vikashg450)**  
+Trained on open NYC Airbnb data for educational & demonstration purposes.
