@@ -175,4 +175,3 @@ Submits listing details to obtain room type predictions.
 ## 👤 Author
 
 Developed by **[Vikash](https://github.com/vikashg450)**  
-Trained on open NYC Airbnb data for educational & demonstration purposes.
